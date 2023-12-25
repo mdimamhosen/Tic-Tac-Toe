@@ -93,10 +93,11 @@ function checkGameOver() {
       boxes[position[2]].classList.add("win");
     }
   });
-
+  let win = 1;
   // Display the winner and activate the new game button
   if (winner !== "") {
     gameInfo.textContent = `Winner is - ${winner}`;
+    win = 0;
     newGameBtn.classList.add("active");
   }
 
@@ -108,7 +109,7 @@ function checkGameOver() {
     }
   });
 
-  if (fillCount === 9) {
+  if (fillCount === 9 && win === 1) {
     gameInfo.textContent = "Game Tied !";
     newGameBtn.classList.add("active");
   }
